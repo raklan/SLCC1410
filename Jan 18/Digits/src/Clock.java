@@ -8,7 +8,7 @@ public class Clock extends JComponent{
     String time;
 
     java.util.Timer t = new Timer();
-    int fps = 60;
+    int fps = 2;
 
     long hour;
     long minute;
@@ -26,19 +26,29 @@ public class Clock extends JComponent{
     private Number number4;
     private Number number5;
 
+    private Colon hour_minute;
+    private Colon minute_second;
+
     public Clock(int x, int y, int w, int h){
         super();
 
         this.setBounds(x,y,w,h);
         this.setVisible(true);
 
-        number0 = new Number(10,50, 0);
-        number1 = new Number(80, 50,1);
-        number2 = new Number(180, 50, 2);
-        number3 = new Number(250, 50, 3);
-        number4 = new Number(350, 50, 4);
-        number5 = new Number(420, 50, 5);
+        //Hours
+        number0 = new Number(10,0, 0);
+        number1 = new Number(80, 0,1);
+        hour_minute = new Colon(155,0,10,100);
+        //Minutes
+        number2 = new Number(170, 0, 2);
+        number3 = new Number(240, 0, 3);
+        minute_second = new Colon(305,0,10,100);
+        //Seconds
+        number4 = new Number(320, 0, 4);
+        number5 = new Number(400, 0, 5);
 
+        this.add(hour_minute);
+        this.add(minute_second);
         this.add(number0);
         this.add(number1);
         this.add(number2);
