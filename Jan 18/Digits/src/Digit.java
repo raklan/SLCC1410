@@ -31,92 +31,94 @@ public class Digit extends JComponent{
         this.add(topLeft);
     }
 
-    public void one(){
-        bottom.setVisible(false);
-        bottomLeft.setVisible(false);
-        bottomRight.setVisible(true);
-        center.setVisible(false);
-        topLeft.setVisible(false);
-        topRight.setVisible(true);
-        top.setVisible(false);
-    }
-    public void two(){
-        bottom.setVisible(true);
-        bottomLeft.setVisible(true);
-        bottomRight.setVisible(false);
-        center.setVisible(true);
-        topLeft.setVisible(false);
-        topRight.setVisible(true);
-        top.setVisible(true);
-    }
-    public void three(){
-        bottom.setVisible(true);
-        bottomLeft.setVisible(false);
-        bottomRight.setVisible(true);
-        center.setVisible(true);
-        topLeft.setVisible(false);
-        topRight.setVisible(true);
-        top.setVisible(true);
-    }
-    public void four(){
-        bottom.setVisible(false);
-        bottomLeft.setVisible(false);
-        bottomRight.setVisible(true);
-        center.setVisible(true);
-        topLeft.setVisible(true);
-        topRight.setVisible(true);
-        top.setVisible(false);
-    }
-    public void five(){
-        bottom.setVisible(true);
-        bottomLeft.setVisible(false);
-        bottomRight.setVisible(true);
-        center.setVisible(true);
-        topLeft.setVisible(true);
-        topRight.setVisible(false);
-        top.setVisible(true);
-    }
-    public void six(){
-        bottom.setVisible(true);
-        bottomLeft.setVisible(true);
-        bottomRight.setVisible(true);
-        center.setVisible(true);
-        topLeft.setVisible(true);
-        topRight.setVisible(false);
-        top.setVisible(true);
-    }
-    public void seven(){
-        bottom.setVisible(false);
-        bottomLeft.setVisible(false);
-        bottomRight.setVisible(true);
-        center.setVisible(false);
-        topLeft.setVisible(false);
-        topRight.setVisible(true);
-        top.setVisible(true);
-    }
-    public void eight(){
-        this.visibility(true);
-    }
-    public void nine(){
-        bottom.setVisible(true);
-        bottomLeft.setVisible(false);
-        bottomRight.setVisible(true);
-        center.setVisible(true);
-        topLeft.setVisible(true);
-        topRight.setVisible(true);
-        top.setVisible(true);
-    }
-    public void zero(){
-        bottom.setVisible(true);
-        bottomLeft.setVisible(true);
-        bottomRight.setVisible(true);
-        center.setVisible(false);
-        topLeft.setVisible(true);
-        topRight.setVisible(true);
-        top.setVisible(true);
+    protected void setDigit(long n){
+        if(n==1){
+            bottom.setVisible(false);
+            bottomLeft.setVisible(false);
+            bottomRight.setVisible(true);
+            center.setVisible(false);
+            topLeft.setVisible(false);
+            topRight.setVisible(true);
+            top.setVisible(false);
+        }
+        else if(n==2){
+            bottom.setVisible(true);
+            bottomLeft.setVisible(true);
+            bottomRight.setVisible(false);
+            center.setVisible(true);
+            topLeft.setVisible(false);
+            topRight.setVisible(true);
+            top.setVisible(true);
+        }
+        else if(n==3){
+            bottom.setVisible(true);
+            bottomLeft.setVisible(false);
+            bottomRight.setVisible(true);
+            center.setVisible(true);
+            topLeft.setVisible(false);
+            topRight.setVisible(true);
+            top.setVisible(true);
+        }
+        else if(n==4){
+            bottom.setVisible(false);
+            bottomLeft.setVisible(false);
+            bottomRight.setVisible(true);
+            center.setVisible(true);
+            topLeft.setVisible(true);
+            topRight.setVisible(true);
+            top.setVisible(false);
+        }
+        else if(n==5){
+            bottom.setVisible(true);
+            bottomLeft.setVisible(false);
+            bottomRight.setVisible(true);
+            center.setVisible(true);
+            topLeft.setVisible(true);
+            topRight.setVisible(false);
+            top.setVisible(true);
+        }
+        else if(n==6){
+            bottom.setVisible(true);
+            bottomLeft.setVisible(true);
+            bottomRight.setVisible(true);
+            center.setVisible(true);
+            topLeft.setVisible(true);
+            topRight.setVisible(false);
+            top.setVisible(true);
+        }
+        else if(n==7){
+            bottom.setVisible(false);
+            bottomLeft.setVisible(false);
+            bottomRight.setVisible(true);
+            center.setVisible(false);
+            topLeft.setVisible(false);
+            topRight.setVisible(true);
+            top.setVisible(true);
+        }
+        else if(n==8){
+            this.visibility(true);
+        }
+        else if(n==9){
+            bottom.setVisible(true);
+            bottomLeft.setVisible(false);
+            bottomRight.setVisible(true);
+            center.setVisible(true);
+            topLeft.setVisible(true);
+            topRight.setVisible(true);
+            top.setVisible(true);
+        }
+        else if(n==0){
+            bottom.setVisible(true);
+            bottomLeft.setVisible(true);
+            bottomRight.setVisible(true);
+            center.setVisible(false);
+            topLeft.setVisible(true);
+            topRight.setVisible(true);
+            top.setVisible(true);
+        }
     }
 
-    public void visibility(boolean v){
+    protected void visibility(boolean v){
         bottom.setVisible(v);
         bottomLeft.setVisible(v);
         bottomRight.setVisible(v);
