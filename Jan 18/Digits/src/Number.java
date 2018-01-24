@@ -7,11 +7,23 @@ public class Number extends Digit{
         num = n;
     }
 
-    public void setNum(int n){
+    protected void setNum(int n){
         num = n;
     }
-    public int getNum(){
+    protected int getNum(){
         return num;
+    }
+
+    public boolean equals(Object n){
+        if(n==null)
+            return false;
+        if(n==this)
+            return true;
+        if(n instanceof Number){
+            return ((Number)n).getNum() == this.getNum();
+        }
+        else
+            return false;
     }
 
 }

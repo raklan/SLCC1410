@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,6 +27,8 @@ public class Clock extends JComponent{
     private Number number4;
     private Number number5;
 
+    private JLabel amPm;
+
     private Colon hour_minute;
     private Colon minute_second;
 
@@ -47,6 +50,11 @@ public class Clock extends JComponent{
         number4 = new Number(320, 0, 4);
         number5 = new Number(400, 0, 5);
 
+        amPm = new JLabel("AM");
+        amPm.setBounds(10,25,50,100);
+        amPm.setForeground(Color.BLACK);
+        amPm.setFont(new Font("Courier New", Font.BOLD,24));
+
         this.add(hour_minute);
         this.add(minute_second);
         this.add(number0);
@@ -55,6 +63,7 @@ public class Clock extends JComponent{
         this.add(number3);
         this.add(number4);
         this.add(number5);
+        this.add(amPm);
 
         t.schedule(new MyTimerTask(), 0, fps);
     }
@@ -75,6 +84,11 @@ public class Clock extends JComponent{
             hour-=12;
             am = false;
         }
+
+        if(am)
+            amPm.setText("AM");
+        else if(!am)
+            amPm.setText("PM");
     }
 
     public void act(){
