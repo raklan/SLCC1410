@@ -1,10 +1,14 @@
+import java.awt.*;
+
 public class Number extends Digit{
 
     protected int num;
 
-    public Number(int x, int y, int n){
-        super(x,y);
+    public Number(int x, int y, int n, int c){
+        super(x,y,c);
+        setVisible(true);
         num = n;
+        setDigit(n);
     }
 
     protected void setNum(int n){

@@ -6,7 +6,6 @@ import java.util.TimerTask;
 public class Clock extends JComponent{
 
     boolean am = true;
-    String time;
 
     java.util.Timer t = new Timer();
     int fps = 2;
@@ -19,6 +18,8 @@ public class Clock extends JComponent{
     long totalSeconds;
     long totalMinutes;
     long totalHours;
+
+    String time;
 
     private Number number0;
     private Number number1;
@@ -39,16 +40,16 @@ public class Clock extends JComponent{
         this.setVisible(true);
 
         //Hours
-        number0 = new Number(10,0, 0);
-        number1 = new Number(80, 0,1);
+        number0 = new Number(10,0, 0, 0);
+        number1 = new Number(80, 0,1, 0);
         hour_minute = new Colon(155,0,10,100);
         //Minutes
-        number2 = new Number(170, 0, 2);
-        number3 = new Number(240, 0, 3);
+        number2 = new Number(170, 0, 2, 0);
+        number3 = new Number(240, 0, 3, 0);
         minute_second = new Colon(305,0,10,100);
         //Seconds
-        number4 = new Number(320, 0, 4);
-        number5 = new Number(400, 0, 5);
+        number4 = new Number(320, 0, 4, 0);
+        number5 = new Number(400, 0, 5, 0);
 
         amPm = new JLabel("AM");
         amPm.setBounds(10,25,50,100);
@@ -85,6 +86,8 @@ public class Clock extends JComponent{
             am = false;
         }
 
+        time = ""+hour+""+minute+""+second;
+
         if(am)
             amPm.setText("AM");
         else if(!am)
@@ -97,17 +100,31 @@ public class Clock extends JComponent{
         if(hour<=9){
             number0.visibility(false);
             number1.setDigit(hour);
+            number1.setColor(Integer.parseInt(time.substring(0,1)));
         }
         else{
             number0.setDigit(1);
             number1.setDigit(hour-10);
+            number1.setColor(Integer.parseInt(time.substring(0,1)));
         }
 
         number2.setDigit(minute/10);
+        number2.setColor(Integer.parseInt(time.substring(1,2)));
+
         number3.setDigit(minute%10);
+        number3.setColor(Integer.parseInt(time.substring(2,3)));
+
 
         number4.setDigit(second/10);
-        number5.setDigit(second%10);
+        number4.setColor(Integer.parseInt(time.substring(3,4)));
+
+
+        try {
+            number5.setDigit(second % 10);
+            number5.setColor(Integer.parseInt(time.substring(4, 5)));
+        }catch(StringIndexOutOfBoundsException e){
+            number5.setColor(0);
+        }
 
     }
 
