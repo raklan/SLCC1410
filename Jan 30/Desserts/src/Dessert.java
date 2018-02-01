@@ -1,12 +1,12 @@
 import java.util.ArrayList;
-        import java.util.Scanner;
+import java.util.Scanner;
 
-public class Dessert {
+public abstract class Dessert {
 
     private String flavor;
-    private ArrayList<String> ingredients;
+    private ArrayList<String> ingredients = new ArrayList<>();
 
-    private boolean isStored;
+    protected boolean isStored;
 
     static Scanner scan = new Scanner(System.in);
 
@@ -16,6 +16,7 @@ public class Dessert {
 
         isStored = false;
     }
+
 
     public String getIngredients(){
         String allIngredients = "";
@@ -37,9 +38,6 @@ public class Dessert {
         return theDessert;
     }
 
-    public void create(){
-        System.out.println("Dessert Created!");
-    }
 
     public void setIngredients(Dessert d){
         boolean done = false;
@@ -56,6 +54,8 @@ public class Dessert {
             else if(d instanceof IceCream)
                 System.out.println("Enter the ingredient you want to add to this ICE CREAM, or type 'done' to finish");
 
+
+            input = scan.nextLine();
             if(input.equalsIgnoreCase("done"))
                 done = true;
             else{
@@ -64,11 +64,9 @@ public class Dessert {
         }
     }
 
-    public void finish(){
-        System.out.println("Dessert Finished!");
-    }
+    public abstract void create();
 
-    public void store(boolean s){
-        isStored = s;
-    }
+    public abstract void finish();
+
+    public abstract void store(boolean b);
 }

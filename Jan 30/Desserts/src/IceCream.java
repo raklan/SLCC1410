@@ -1,6 +1,7 @@
 public class IceCream extends Dessert {
-    public IceCream(String f) {
-        super(f);
+
+    public IceCream(String flavor) {
+        super(flavor);
     }
 
     public void make(){
@@ -9,4 +10,20 @@ public class IceCream extends Dessert {
     public void eat(){
         System.out.println("Ice Cream has been eaten!");
     }
+
+    @Override
+    public void create(){
+        System.out.println("Cake created!");
+    }
+
+    @Override
+    public void finish() {
+        System.out.println("Cake Finished!");
+    }
+
+    @Override
+    public void store(boolean b){
+        isStored = true;
+    }
+
 }

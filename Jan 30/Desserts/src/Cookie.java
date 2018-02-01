@@ -1,6 +1,7 @@
 public class Cookie extends Dessert {
-    public Cookie(String f){
-        super(f);
+
+    public Cookie(String flavor){
+        super(flavor);
     }
 
     public void bake(){
@@ -8,6 +9,21 @@ public class Cookie extends Dessert {
     }
     public void eat(){
         System.out.println("Cookie has been eaten!");
+    }
+
+    @Override
+    public void create(){
+        System.out.println("Cake created!");
+    }
+
+    @Override
+    public void finish() {
+        System.out.println("Cake Finished!");
+    }
+
+    @Override
+    public void store(boolean b){
+        isStored = true;
     }
 
 }
