@@ -1,7 +1,10 @@
 public class Cake extends Dessert{
 
+    private String shape;
+
     public Cake(String flavor){
         super(flavor);
+        shape = "round";
     }
 
     public void bake(){
@@ -25,4 +28,15 @@ public class Cake extends Dessert{
     public void store(boolean b){
         isStored = true;
     }
+
+    @Override
+    public void prepare(){
+        System.out.println("Cake Prepared!");
+    }
+
+    public String toString(){
+        String theString = super.toString()+" is Cake and "+shape+" shaped.";
+        return theString;
+    }
+
 }

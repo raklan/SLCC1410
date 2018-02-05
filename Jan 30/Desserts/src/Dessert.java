@@ -66,6 +66,8 @@ public abstract class Dessert {
 
     public abstract void create();
 
+    public abstract void prepare();
+
     public abstract void finish();
 
     public abstract void store(boolean b);

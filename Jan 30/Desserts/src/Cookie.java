@@ -1,7 +1,10 @@
 public class Cookie extends Dessert {
 
+    private String shape;
+
     public Cookie(String flavor){
         super(flavor);
+        shape = "round";
     }
 
     public void bake(){
@@ -26,4 +29,13 @@ public class Cookie extends Dessert {
         isStored = true;
     }
 
+    @Override
+    public void prepare(){
+        System.out.println("Cookie Prepared!");
+    }
+
+    public String toString(){
+        String theString = super.toString()+" is a Cookie and "+shape+" shaped.";
+        return theString;
+    }
 }

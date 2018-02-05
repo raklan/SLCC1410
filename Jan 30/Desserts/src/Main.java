@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -7,10 +9,15 @@ public class Main {
         Dessert thePie = new Pie("Cherry");
         Dessert theCookie = new Cookie("Peanut Butter");
 
-        System.out.println(theCake.toString());
-        System.out.println(thePie.toString());
-        System.out.println(theIceCream.toString());
-        System.out.println(theCookie.toString());
+        ArrayList<Dessert> allDesserts = new ArrayList<>();
+
+        allDesserts.add(theCake);
+        allDesserts.add(theIceCream);
+        allDesserts.add(thePie);
+        allDesserts.add(theCookie);
+
+        for(Dessert d: allDesserts)
+            System.out.println(d.toString());
 
     }
 
