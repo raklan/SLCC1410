@@ -1,12 +1,24 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Counter implements ActionListener{
+public class Counter extends JComponent implements ActionListener{
 
     private int count;
+    private DoubleDigit nums;
 
-    public Counter(){
+    private World theWorld;
+
+    public Counter(int x, int y, World w){
+        super();
+        setBounds(x,y, 200,200);
+
+        theWorld = w;
+        nums = new DoubleDigit(0,0);
+        add(nums, 0);
+
         count = 0;
+        nums.setValue(count);
     }
 
     private void add1(){
@@ -20,34 +32,16 @@ public class Counter implements ActionListener{
     }
 
     private void updateNumber(){
-        if(count == 0){
-            World.theOnesCount.setNum(getCount());
-            World.theOnesCount.setDigit(getCount());
-
-            World.theTensCount.setNum(getCount());
-            World.theTensCount.setDigit(getCount());
-        }
-        else if(count<10) {
-            World.theOnesCount.setNum(getCount());
-            World.theOnesCount.setDigit(getCount());
-
-            World.theTensCount.setNum(0);
-            World.theTensCount.setDigit(0);
-        }
-
-        else if(count>=10&&count<20){
-            World.theOnesCount.setNum(getCount());
-            World.theOnesCount.setDigit(getCount());
-
-            World.theTensCount.setNum(1);
-            World.theTensCount.setDigit(1);
-        }
+        if(count>=100)
+            count = 0;
+        nums.setValue(count);
+        nums.setColors(count/10);
     }
 
     @Override
     public void actionPerformed(ActionEvent e){
 
-        if(e.getSource().equals(World.countButton)){
+        if(e.getSource().equals(theWorld.countButton)){
             add1();
         }
         else {
