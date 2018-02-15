@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class Counter extends JComponent implements ActionListener{
 
@@ -8,6 +9,8 @@ public class Counter extends JComponent implements ActionListener{
     private DoubleDigit nums;
 
     private World theWorld;
+
+    private static Random gen = new Random();
 
     public Counter(int x, int y, World w){
         super();
@@ -37,12 +40,18 @@ public class Counter extends JComponent implements ActionListener{
         nums.setValue(count);
         nums.setColors(count/10);
     }
+    private void changeColors(){
+        nums.setColors(gen.nextInt(10));
+    }
 
     @Override
     public void actionPerformed(ActionEvent e){
 
-        if(e.getSource().equals(theWorld.countButton)){
+        if(e.getSource()==(theWorld.countButton)){
             add1();
+        }
+        else if(e.getSource()==(theWorld.colorButton)){
+            changeColors();
         }
         else {
             reset();
