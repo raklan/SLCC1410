@@ -26,8 +26,8 @@ public class DoubleDigit extends JComponent{
         ones.setDigit(value%10);
         tens.setDigit(value/10);
     }
-    public void setColors(int num){
-        ones.setColor(num);
-        tens.setColor(num);
+    public void setColors(int newColor){
+        ones.setColor(newColor);
+        tens.setColor(newColor);
     }
 }
