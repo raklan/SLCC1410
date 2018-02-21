@@ -21,7 +21,7 @@ public abstract class ClickableImage extends ImagePanel implements MouseListener
         addMouseListener(this);
     }
 
-    public String getImage(){
+    public String getImageName(){
         return name;
     }
 
@@ -29,7 +29,7 @@ public abstract class ClickableImage extends ImagePanel implements MouseListener
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        win.setLabelText(this.getImageName());
     }
     @Override
     public void mousePressed(MouseEvent e) {
