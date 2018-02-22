@@ -9,21 +9,23 @@ public class Mammal extends ClickableImage{
 
     @Override
     public void changeImage(){
-        if(imagePath.equalsIgnoreCase("images/Bear.png")){
-            this.setImage("images/elk.png");
-            imagePath = "images/elk.png";
-        }
-        else if(imagePath.equalsIgnoreCase("images/elk.png")){
-            this.setImage("images/Moose.png");
-            imagePath = "images/Moose.png";
-        }
-        else if(imagePath.equalsIgnoreCase("images/Moose.png")){
-            this.setImage("images/Wolf.png");
-            imagePath = "images/Wolf.png";
-        }
-        else if(imagePath.equalsIgnoreCase("images/Wolf.png")){
-            this.setImage("images/Bear.png");
-            imagePath = "images/Bear.png";
+        switch(this.getCount()){
+            case 0:
+                setImage("images/Bear.png");
+                addToCount(1);
+                break;
+            case 1:
+                setImage("images/elk.png");
+                addToCount(1);
+                break;
+            case 2:
+                setImage("images/Moose.png");
+                addToCount(1);
+                break;
+            case 3:
+                setImage("images/Wolf.png");
+                resetCount();
+                break;
         }
         repaint();
     }

@@ -9,17 +9,19 @@ public class Reptile extends ClickableImage {
 
     @Override
     public void changeImage(){
-        if(imagePath.equalsIgnoreCase("images/alligator.png")){
-            this.setImage("images/frog.png");
-            imagePath = "images/frog.png";
-        }
-        else if(imagePath.equalsIgnoreCase("images/frog.png")){
-            this.setImage("images/turtle.png");
-            imagePath = "images/turtle.png";
-        }
-        else if(imagePath.equalsIgnoreCase("images/turtle.png")){
-            this.setImage("images/alligator.png");
-            imagePath = "images/alligator.png";
+        switch(this.getCount()){
+            case 0:
+                setImage("images/turtle.png");
+                addToCount(1);
+                break;
+            case 1:
+                setImage("images/frog.png");
+                addToCount(1);
+                break;
+            case 2:
+                setImage("images/alligator.png");
+                resetCount();
+                break;
         }
         repaint();
     }

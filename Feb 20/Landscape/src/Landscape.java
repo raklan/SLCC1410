@@ -9,17 +9,19 @@ public class Landscape extends ClickableImage{
 
     @Override
     public void changeImage(){
-        if(imagePath.equalsIgnoreCase("images/MountainFall.jpg")){
-            this.setImage("images/MountainSummer.jpg");
-            imagePath = "images/MountainSummer.jpg";
-        }
-        else if(imagePath.equalsIgnoreCase("images/MountainSummer.jpg")){
-            this.setImage("images/MountainWinter.jpg");
-            imagePath = "images/MountainWinter.jpg";
-        }
-        else if(imagePath.equalsIgnoreCase("images/MountainWinter.jpg")){
-            this.setImage("images/MountainFall.jpg");
-            imagePath = "images/MountainFall.jpg";
+        switch(this.getCount()){
+            case 0:
+                setImage("images/MountainWinter.jpg");
+                addToCount(1);
+                break;
+            case 1:
+                setImage("images/MountainSummer.jpg");
+                addToCount(1);
+                break;
+            case 2:
+                setImage("images/MountainFall.jpg");
+                resetCount();
+                break;
         }
         repaint();
     }

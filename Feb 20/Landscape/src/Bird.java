@@ -7,21 +7,23 @@ public class Bird extends ClickableImage {
 
     @Override
     public void changeImage(){
-        if(imagePath.equalsIgnoreCase("images/eagle.png")){
-            this.setImage("images/goose.png");
-            imagePath = "images/goose.png";
-        }
-        else if(imagePath.equalsIgnoreCase("images/goose.png")){
-            this.setImage("images/heron.png");
-            imagePath = "images/heron.png";
-        }
-        else if(imagePath.equalsIgnoreCase("images/heron.png")){
-            this.setImage("images/owl.png");
-            imagePath = "images/owl.png";
-        }
-        else if(imagePath.equalsIgnoreCase("images/owl.png")){
-            this.setImage("images/eagle.png");
-            imagePath = "images/eagle.png";
+        switch(this.getCount()){
+            case 0:
+                setImage("images/eagle.png");
+                addToCount(1);
+                break;
+            case 1:
+                setImage("images/goose.png");
+                addToCount(1);
+                break;
+            case 2:
+                setImage("images/heron.png");
+                addToCount(1);
+                break;
+            case 3:
+                setImage("images/owl.png");
+                resetCount();
+                break;
         }
         repaint();
     }
