@@ -37,7 +37,7 @@ public abstract class ClickableImage extends ImagePanel implements MouseListener
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        win.setLabelText(this.getImageName());
+        win.changeObject(this);
     }
     @Override
     public void mousePressed(MouseEvent e) {

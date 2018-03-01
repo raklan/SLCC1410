@@ -29,5 +29,4 @@ public class Mammal extends ClickableImage{
         }
         repaint();
     }
-
 }

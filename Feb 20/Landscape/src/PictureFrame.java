@@ -12,6 +12,7 @@ public class PictureFrame extends JFrame implements ActionListener{
     private ClickableImage birb;
     private ClickableImage lizardboi;
 
+    private ClickableImage ci;
 
     public PictureFrame(){
         super("Picture Frame");
@@ -43,30 +44,22 @@ public class PictureFrame extends JFrame implements ActionListener{
         lizardboi = new Reptile(650,500,100,100, "images/alligator.png","Reptile", this);
         add(lizardboi, 0);
 
-        label.setText(landscape.getImageName());
+        ci = landscape;
+
+        label.setText(ci.getImageName());
     }
 
     public static void main(String[]args){
         new PictureFrame();
     }
 
-    public void setLabelText(String s){
-        label.setText(s);
+    public void changeObject(ClickableImage c){
+        ci = c;
+        label.setText(ci.getImageName());
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-            if(label.getText().equalsIgnoreCase(landscape.getImageName())) {
-                landscape.changeImage();
-            }
-            else if(label.getText().equalsIgnoreCase(aminal.getImageName())) {
-                aminal.changeImage();
-            }
-            else if(label.getText().equalsIgnoreCase(birb.getImageName())) {
-                birb.changeImage();
-            }
-            else if(label.getText().equalsIgnoreCase(lizardboi.getImageName())) {
-                lizardboi.changeImage();
-            }
+            ci.changeImage();
     }
 }
