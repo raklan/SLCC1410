@@ -28,4 +28,19 @@ public class GenericStack<E> {
         else
             return false;
     }
+
+    public void printIsEmpty(){
+        if(elements.size()==0)
+            System.out.println("The Stack IS empty");
+        else
+            System.out.println("The Stack IS NOT empty");
+    }
+
+    public String toString(){
+        String contents = "";
+        for(E s: elements){
+            contents += s.toString()+", ";
+        }
+        return contents;
+    }
 }

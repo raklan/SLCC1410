@@ -25,4 +25,19 @@ public class Queue<E> {
     public boolean isEmpty(){
         return queue.isEmpty();
     }
+
+    public void printIsEmpty(){
+        if(isEmpty())
+            System.out.println("The Queue IS empty");
+        else
+            System.out.println("The Queue IS NOT empty");
+    }
+
+    public String toString(){
+        String contents = "";
+        for(E s: queue){
+            contents += s.toString()+", ";
+        }
+        return contents;
+    }
 }
